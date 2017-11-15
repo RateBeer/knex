@@ -30,8 +30,8 @@ assign(SchemaCompiler_MSSQL.prototype, {
   hasTable(tableName) {
     const formattedTable = this.formatter.parameter(this.formatter.wrap(tableName));
     const sql =
-      `select object_id from sys.tables ` +
-      `where object_id = object_id(${formattedTable})`;
+      `SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES ` +
+      `WHERE TABLE_NAME = ${formattedTable}`;
     this.pushQuery({ sql, output: resp => resp.length > 0 });
   },
 
