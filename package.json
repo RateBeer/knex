@@ -71,6 +71,7 @@
     "dev": "rm -rf ./lib && babel -w src --out-dir lib --copy-files",
     "lint": "eslint src/**",
     "plaintest": "mocha --check-leaks -b -R spec test/index.js && npm run tape",
+    "postinstall": "npm run babel",
     "prepublish": "npm run babel",
     "tape": "node test/tape/index.js | tap-spec",
     "debug_tape": "node-debug test/tape/index.js",
